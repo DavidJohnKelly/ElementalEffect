@@ -325,7 +325,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 28713794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 100648de698df8244aae3f68cfee9fa2, type: 3}
+  m_Script: {fileID: 11500000, guid: e613ccb7ca62426409d99963dd60e896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &28752535
@@ -5147,6 +5147,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 171122889}
   m_SourcePrefab: {fileID: 100100000, guid: 7db5d4588609f904fa3fd3b40ec9858b, type: 3}
+--- !u!1 &207147540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4135013735270702863, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+  m_PrefabInstance: {fileID: 1198197800}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &209413584
 GameObject:
   m_ObjectHideFlags: 0
@@ -6863,7 +6868,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e98398c596079bf4a82d47462042ceab, type: 3}
+  m_Script: {fileID: 11500000, guid: c8642a11c0013cc428262d1d837e3793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementBaseSpeed: 5
@@ -6871,10 +6876,10 @@ MonoBehaviour:
   movementMaxSpeed: 80
   movementSprintSpeed: 160
   movementHeightFactor: 3
-  xMinLimit: 10
-  xMaxLimit: 110
-  zMinLimit: -150
-  zMaxLimit: 20
+  xMinLimit: -200
+  xMaxLimit: 460
+  zMinLimit: -200
+  zMaxLimit: 460
   zoomBaseSpeed: 5
   zoomAcceleration: 10
   zoomMaxSpeed: 100
@@ -10565,7 +10570,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bcdadc589e336544ae35d2a8852d522, type: 3}
+  m_Script: {fileID: 11500000, guid: bd4fef305d7bf044e872f70798e03011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &573213156 stripped
@@ -13382,6 +13387,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3029464162940423692, guid: 2af8905ad8288da4ea1e78e4a2380aee, type: 3}
   m_PrefabInstance: {fileID: 1739578021}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &796521228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5924992234732300934, guid: debc46e264bc9184d8b81b4b2a19f962, type: 3}
+  m_PrefabInstance: {fileID: 1888851420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &797090210
 GameObject:
   m_ObjectHideFlags: 0
@@ -15091,7 +15101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 932567713}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5234a3900a9e4e4fa9da36c8b55943f, type: 3}
+  m_Script: {fileID: 11500000, guid: 98effe4ae89f3474ba518b536b09b9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerConfigs:
@@ -15105,402 +15115,402 @@ MonoBehaviour:
     Aiming:
       Water:
         LevelOneConfig:
-          Range: 10
-          PhysicalDamagePercent: 30
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 1
-          Cost: 80
-        LevelTwoConfig:
-          Range: 15
-          PhysicalDamagePercent: 50
-          ShotsPerSecond: 1.2
-          ProjectileSpeed: 190
-          NumProjectiles: 1
-          Cost: 120
-        LevelThreeConfig:
-          Range: 25
-          PhysicalDamagePercent: 70
-          ShotsPerSecond: 1.5
-          ProjectileSpeed: 200
-          NumProjectiles: 1
-          Cost: 145
-      Fire:
-        LevelOneConfig:
-          Range: 10
-          PhysicalDamagePercent: 40
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 1
-          Cost: 90
-        LevelTwoConfig:
-          Range: 15
-          PhysicalDamagePercent: 60
-          ShotsPerSecond: 1.2
-          ProjectileSpeed: 190
-          NumProjectiles: 1
-          Cost: 125
-        LevelThreeConfig:
-          Range: 25
-          PhysicalDamagePercent: 80
-          ShotsPerSecond: 1.5
-          ProjectileSpeed: 200
-          NumProjectiles: 1
-          Cost: 150
-      Air:
-        LevelOneConfig:
-          Range: 15
+          Range: 16
           PhysicalDamagePercent: 20
           ShotsPerSecond: 1
-          ProjectileSpeed: 180
+          ProjectileSpeed: 120
           NumProjectiles: 1
-          Cost: 70
+          Cost: 100
         LevelTwoConfig:
-          Range: 20
-          PhysicalDamagePercent: 35
-          ShotsPerSecond: 1.2
-          ProjectileSpeed: 190
+          Range: 24
+          PhysicalDamagePercent: 40
+          ShotsPerSecond: 2
+          ProjectileSpeed: 160
           NumProjectiles: 1
-          Cost: 110
+          Cost: 140
         LevelThreeConfig:
-          Range: 30
-          PhysicalDamagePercent: 50
-          ShotsPerSecond: 1.5
+          Range: 32
+          PhysicalDamagePercent: 60
+          ShotsPerSecond: 3
           ProjectileSpeed: 200
           NumProjectiles: 1
-          Cost: 130
+          Cost: 200
+      Fire:
+        LevelOneConfig:
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
+        LevelTwoConfig:
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
+        LevelThreeConfig:
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
+      Air:
+        LevelOneConfig:
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
+        LevelTwoConfig:
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
+        LevelThreeConfig:
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
       Earth:
         LevelOneConfig:
-          Range: 10
-          PhysicalDamagePercent: 60
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 1
-          Cost: 95
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 15
-          PhysicalDamagePercent: 75
-          ShotsPerSecond: 1.2
-          ProjectileSpeed: 190
-          NumProjectiles: 1
-          Cost: 130
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 25
-          PhysicalDamagePercent: 90
-          ShotsPerSecond: 1.5
-          ProjectileSpeed: 200
-          NumProjectiles: 1
-          Cost: 155
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
       Electric:
         LevelOneConfig:
-          Range: 10
-          PhysicalDamagePercent: 40
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 1
-          Cost: 90
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 15
-          PhysicalDamagePercent: 60
-          ShotsPerSecond: 1.2
-          ProjectileSpeed: 190
-          NumProjectiles: 1
-          Cost: 125
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 25
-          PhysicalDamagePercent: 80
-          ShotsPerSecond: 1.5
-          ProjectileSpeed: 200
-          NumProjectiles: 1
-          Cost: 150
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
       Ice:
         LevelOneConfig:
-          Range: 10
-          PhysicalDamagePercent: 55
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 1
-          Cost: 90
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 15
-          PhysicalDamagePercent: 65
-          ShotsPerSecond: 1.2
-          ProjectileSpeed: 190
-          NumProjectiles: 1
-          Cost: 125
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 25
-          PhysicalDamagePercent: 85
-          ShotsPerSecond: 1.5
-          ProjectileSpeed: 200
-          NumProjectiles: 1
-          Cost: 150
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
     Spray:
       Water:
         LevelOneConfig:
-          Range: 12
-          PhysicalDamagePercent: 15
-          ShotsPerSecond: 0.6
-          ProjectileSpeed: 140
-          NumProjectiles: 8
-          Cost: 100
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 18
-          PhysicalDamagePercent: 30
-          ShotsPerSecond: 0.8
-          ProjectileSpeed: 160
-          NumProjectiles: 12
-          Cost: 140
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
-          PhysicalDamagePercent: 50
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 16
-          Cost: 165
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
       Fire:
         LevelOneConfig:
-          Range: 12
-          PhysicalDamagePercent: 20
-          ShotsPerSecond: 0.6
-          ProjectileSpeed: 140
-          NumProjectiles: 8
-          Cost: 110
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 18
-          PhysicalDamagePercent: 40
-          ShotsPerSecond: 0.8
-          ProjectileSpeed: 160
-          NumProjectiles: 12
-          Cost: 150
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
-          PhysicalDamagePercent: 60
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 16
-          Cost: 170
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
       Air:
         LevelOneConfig:
-          Range: 16
-          PhysicalDamagePercent: 10
-          ShotsPerSecond: 0.8
-          ProjectileSpeed: 160
-          NumProjectiles: 8
-          Cost: 100
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 22
-          PhysicalDamagePercent: 20
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 11
-          Cost: 140
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 34
-          PhysicalDamagePercent: 35
-          ShotsPerSecond: 1.2
-          ProjectileSpeed: 200
-          NumProjectiles: 6
-          Cost: 165
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
       Earth:
         LevelOneConfig:
-          Range: 12
-          PhysicalDamagePercent: 25
-          ShotsPerSecond: 0.6
-          ProjectileSpeed: 140
-          NumProjectiles: 8
-          Cost: 110
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 18
-          PhysicalDamagePercent: 40
-          ShotsPerSecond: 0.8
-          ProjectileSpeed: 160
-          NumProjectiles: 12
-          Cost: 150
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
-          PhysicalDamagePercent: 60
-          ShotsPerSecond: 1
-          ProjectileSpeed: 280
-          NumProjectiles: 16
-          Cost: 175
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
       Electric:
         LevelOneConfig:
-          Range: 12
-          PhysicalDamagePercent: 20
-          ShotsPerSecond: 0.6
-          ProjectileSpeed: 140
-          NumProjectiles: 8
-          Cost: 105
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 18
-          PhysicalDamagePercent: 40
-          ShotsPerSecond: 0.8
-          ProjectileSpeed: 160
-          NumProjectiles: 12
-          Cost: 145
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
-          PhysicalDamagePercent: 60
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 16
-          Cost: 165
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
       Ice:
         LevelOneConfig:
-          Range: 12
-          PhysicalDamagePercent: 20
-          ShotsPerSecond: 0.6
-          ProjectileSpeed: 140
-          NumProjectiles: 8
-          Cost: 110
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelTwoConfig:
-          Range: 18
-          PhysicalDamagePercent: 30
-          ShotsPerSecond: 0.8
-          ProjectileSpeed: 160
-          NumProjectiles: 12
-          Cost: 150
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
-          PhysicalDamagePercent: 45
-          ShotsPerSecond: 1
-          ProjectileSpeed: 180
-          NumProjectiles: 16
-          Cost: 175
+          Range: 0
+          PhysicalDamagePercent: 0
+          ShotsPerSecond: 0
+          ProjectileSpeed: 0
+          NumProjectiles: 0
+          Cost: 0
     AreaOfEffect:
       Water:
         LevelOneConfig:
-          Range: 10
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 6
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 80
+          Cost: 0
         LevelTwoConfig:
-          Range: 20
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 8
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 110
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 12
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 140
+          Cost: 0
       Fire:
         LevelOneConfig:
-          Range: 10
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 6
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 90
+          Cost: 0
         LevelTwoConfig:
-          Range: 20
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 8
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 120
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 12
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 140
+          Cost: 0
       Air:
         LevelOneConfig:
-          Range: 14
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 8
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 70
+          Cost: 0
         LevelTwoConfig:
-          Range: 24
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 10
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 100
+          Cost: 0
         LevelThreeConfig:
-          Range: 34
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 14
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 130
+          Cost: 0
       Earth:
         LevelOneConfig:
-          Range: 10
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 8
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 100
+          Cost: 0
         LevelTwoConfig:
-          Range: 20
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 8
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 130
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 12
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 150
+          Cost: 0
       Electric:
         LevelOneConfig:
-          Range: 10
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 6
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 100
+          Cost: 0
         LevelTwoConfig:
-          Range: 20
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 8
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 130
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 12
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 150
+          Cost: 0
       Ice:
         LevelOneConfig:
-          Range: 10
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 8
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 100
+          Cost: 0
         LevelTwoConfig:
-          Range: 20
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 8
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 130
+          Cost: 0
         LevelThreeConfig:
-          Range: 30
+          Range: 0
           PhysicalDamagePercent: 0
-          ShotsPerSecond: 12
+          ShotsPerSecond: 0
           ProjectileSpeed: 0
           NumProjectiles: 0
-          Cost: 160
+          Cost: 0
   basePrefab: {fileID: 3472320741029820021, guid: def41018357dfe841856c5b1a06695c4, type: 3}
   towerModelCollection:
     AimingTowers:
@@ -16825,17 +16835,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1058428175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d810d91ee65811458def89f3e60af5d, type: 3}
+  m_Script: {fileID: 11500000, guid: b4ca16077b9fef846923ec96f4145032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   towerDefenceCamera: {fileID: 330585543}
   towerDefenceUI: {fileID: 2072590031}
-  towerDefenceAudio: {fileID: 8300000, guid: a0d611f4d877db54fa0c568f2732d2dd, type: 3}
+  towerDefenceAudio: {fileID: 0}
   FPSCamera: {fileID: 4930705049709996400}
   HealthText: {fileID: 970738600}
-  FPSAudio: {fileID: 8300000, guid: 8673c99d3c278f546bdcb7ee374075b4, type: 3}
-  initialMoney: 320
-  roundMoneyMultiplier: 1.2
+  FPSAudio: {fileID: 0}
+  initialMoney: 100
+  roundMoneyMultiplier: 1.5
   initialHealth: 100
   winSceneString: WinScene
   loseSceneString: GameOverScene
@@ -17345,6 +17355,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4aefc7f113fdc674193ed6065ce7d9a6, type: 3}
   m_PrefabInstance: {fileID: 171639050}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1077609530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1836531018732021703, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077609533}
+  - component: {fileID: 1077609532}
+  - component: {fileID: 1077609531}
+  m_Layer: 0
+  m_Name: Player Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1077609531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 8724533896784112822, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077609530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58562b66558bcc640bda17d8fa68d801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHeightOffset: 1
+--- !u!114 &1077609532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4203372818890326659, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077609530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76289a8f3499be8438948dfd93df06ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  selectionMaterialTemplate: {fileID: 2100000, guid: 76aa0e7573beff740bbace44e55320b8, type: 2}
+  PlacementLayer:
+    serializedVersion: 2
+    m_Bits: 1
+--- !u!4 &1077609533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2479986287714081219, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077609530}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.8, y: -12.91, z: -80.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1412238505}
+  - {fileID: 2024160868}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084273744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 7db5d4588609f904fa3fd3b40ec9858b, type: 3}
@@ -17719,13 +17794,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1104012523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ebc6d8cc5e10c479a8d7800409fc09, type: 3}
+  m_Script: {fileID: 11500000, guid: 195bd0fcccb2c6c41a1dfc2dced0e210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectLayer:
     serializedVersion: 2
-    m_Bits: 128
-  PlacementSound: {fileID: 8300000, guid: 9d0113dd16699ce4ea3c58dd422fdc1f, type: 3}
+    m_Bits: 64
+  objectPlacer: {fileID: 1956041818}
+  objectSelector: {fileID: 28713796}
+  PlacementSound: {fileID: 0}
 --- !u!82 &1104012526
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19292,6 +19369,10 @@ PrefabInstance:
       propertyPath: GroundLayers.m_Bits
       value: 193
       objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      propertyPath: CinemachineCameraTarget
+      value: 
+      objectReference: {fileID: 207147540}
     - target: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
@@ -21497,11 +21578,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7db5d4588609f904fa3fd3b40ec9858b, type: 3}
   m_PrefabInstance: {fileID: 524238092}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1358575227 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5924992234732300934, guid: debc46e264bc9184d8b81b4b2a19f962, type: 3}
-  m_PrefabInstance: {fileID: 1888851420}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1365032281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22035,6 +22111,102 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247e09e89c199dd46b07af0a0a46b8ac, type: 3}
+--- !u!1 &1412238504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 6039398527785000239, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1412238505}
+  - component: {fileID: 1412238508}
+  - component: {fileID: 1412238507}
+  - component: {fileID: 1412238506}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1412238505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9023366720534083972, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412238504}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1077609533}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1412238506
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 839022047704468590, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412238504}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1412238507
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7515400636223672923, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412238504}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1412238508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3062728650493488897, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412238504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98e751943fea414491ab3be9ab58b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectionColour: {r: 0.015686274, g: 1, b: 0.22585323, a: 1}
+  selectionMaterialTemplate: {fileID: 2100000, guid: 76aa0e7573beff740bbace44e55320b8, type: 2}
 --- !u!4 &1414301632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3029464162940423692, guid: 2af8905ad8288da4ea1e78e4a2380aee, type: 3}
@@ -29258,139 +29430,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1929933680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8b06557980a8a1448b2002364447169, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b61db331788b084eb795b6829a630cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rounds:
   - roundName: Round 1
     waves:
     - waveName: Wave 1
-      waveInterval: 3
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 4
-        enemyCount: 1
-        spawnInterval: 1
-  - roundName: Round 2
-    waves:
-    - waveName: Wave 1
-      waveInterval: 3
+      waveInterval: 0
       enemySpawnData:
       - enemyName: Enemy Collection 1
         enemyType: 0
-        enemyCount: 10
-        spawnInterval: 1
-    - waveName: Wave 2
-      waveInterval: 1
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 1
-        enemyCount: 10
-        spawnInterval: 0.5
-    - waveName: Wave 3
-      waveInterval: 3
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 0
-        enemyCount: 10
-        spawnInterval: 0.6
-  - roundName: Round 3
-    waves:
-    - waveName: Wave 1
-      waveInterval: 3
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 1
-        enemyCount: 10
-        spawnInterval: 0.3
-    - waveName: Wave 2
-      waveInterval: 1
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 0
-        enemyCount: 15
-        spawnInterval: 0.7
-    - waveName: Wave 3
-      waveInterval: 2
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 2
-        enemyCount: 10
-        spawnInterval: 0.5
-    - waveName: Wave 4
-      waveInterval: 3
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 1
-        enemyCount: 5
-        spawnInterval: 0.3
-  - roundName: Round 4
-    waves:
-    - waveName: Wave 1
-      waveInterval: 3
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 3
-        enemyCount: 5
-        spawnInterval: 0.5
-    - waveName: Wave 2
-      waveInterval: 1
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 0
-        enemyCount: 15
-        spawnInterval: 0.7
-    - waveName: Wave 3
-      waveInterval: 2
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 2
-        enemyCount: 12
-        spawnInterval: 0.5
-    - waveName: Wave 4
-      waveInterval: 3
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 1
-        enemyCount: 12
-        spawnInterval: 0.3
-  - roundName: Round 5
-    waves:
-    - waveName: Wave 1
-      waveInterval: 3
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 2
-        enemyCount: 15
-        spawnInterval: 0.3
-    - waveName: Wave 2
-      waveInterval: 1
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 1
-        enemyCount: 15
+        enemyCount: 4
         spawnInterval: 0.2
-    - waveName: Wave 3
-      waveInterval: 2
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 3
-        enemyCount: 10
-        spawnInterval: 0.5
-    - waveName: Wave 4
-      waveInterval: 4
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 0
-        enemyCount: 20
-        spawnInterval: 0.5
-    - waveName: Wave 5
-      waveInterval: 4
-      enemySpawnData:
-      - enemyName: Enemy Collection 1
-        enemyType: 4
-        enemyCount: 1
-        spawnInterval: 0.5
 --- !u!1001 &1934239459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29940,6 +29992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1956041817}
   - component: {fileID: 1956041818}
+  - component: {fileID: 1956041819}
   m_Layer: 0
   m_Name: Object Placer
   m_TagString: Untagged
@@ -29971,7 +30024,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1956041816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ddfba7d56b6e940a1406c80515add7, type: 3}
+  m_Script: {fileID: 11500000, guid: 15300e7e67cb67b479ba82c38943018a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1956041819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956041816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c206bd532c1b4da4bb9c721b84c326bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1958184872
@@ -30539,6 +30604,92 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017895904}
   m_CullTransparentMesh: 1
+--- !u!1 &2024160867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2354509136494602668, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2024160868}
+  - component: {fileID: 2024160870}
+  - component: {fileID: 2024160869}
+  m_Layer: 7
+  m_Name: Capsule
+  m_TagString: Model
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2024160868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4605759017399400030, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024160867}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1077609533}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2024160869
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 8815700809937155711, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024160867}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2024160870
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5648475604134022027, guid: 6e74ac737a658ac419bc799b08414acd, type: 3}
+  m_PrefabInstance: {fileID: 1256501753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024160867}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &2025639888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3029464162940423692, guid: 2af8905ad8288da4ea1e78e4a2380aee, type: 3}
@@ -31717,7 +31868,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2072590026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef5e6fe5d3b7fdc48b3e14d8630ef54f, type: 3}
+  m_Script: {fileID: 11500000, guid: e25e02b9e25c0ed4ba915be73f312fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectPlacer: {fileID: 1956041818}
@@ -33240,7 +33391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5111202242269055778
 Transform:
   m_ObjectHideFlags: 0
@@ -33353,11 +33504,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4930705049709996400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f6f984bd01169e4985c091079cb6938, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b91d15228006c64f8c4e186ab15aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseShootingSpeed: 200
-  fireRate: 0.2
+  baseShootingSpeed: 250
+  fireRate: 1
   maxChargeTime: 1
   maxStamina: 100
   staminaRechargeRate: 10
@@ -33377,13 +33528,13 @@ MonoBehaviour:
   icePhysicalDamageProportion: 0.5
   waterPhysicalDamageProportion: 0.4
   staminaWarning: {fileID: 334621770}
-  staminaWarningTimeout: 1
+  staminaWarningTimeout: 2
   staminaDisplay: {fileID: 898669969}
   staffPivot: {fileID: 115105650}
-  aimRotationAmount: 20
+  aimRotationAmount: 15
   rotationSpeed: 10
   returnSpeed: 20
-  staffMaterialTarget: {fileID: 1358575227}
+  staffMaterialTarget: {fileID: 796521228}
 --- !u!1 &9107512008836471218
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7850141504328079361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f25c3cdab38f4248a68952cbd74e53c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b2dca9e1b63d0d43882386d3e77a0fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Element: 0
@@ -54,8 +54,8 @@ MonoBehaviour:
   Direction: {x: 0, y: 0, z: 0}
   Speed: 0
   MaxDistance: 0
-  ShotSound: {fileID: 8300000, guid: 5e1a9f876d3dafd47bc6b3dde25135fa, type: 3}
-  ImpactSound: {fileID: 8300000, guid: 9ecc225d126f31d4c9739794266a387f, type: 3}
+  ShotSound: {fileID: 0}
+  ImpactSound: {fileID: 0}
   IsFromPlayer: 0
 --- !u!136 &4412621935504867582
 CapsuleCollider:

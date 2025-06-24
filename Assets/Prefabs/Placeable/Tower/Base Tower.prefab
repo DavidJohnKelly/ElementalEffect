@@ -107,12 +107,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1219487469578520060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e3154e7dfba244fa9602442773b892, type: 3}
+  m_Script: {fileID: 11500000, guid: 7419095b84984a545ae7dcdcbed9f2ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  element: 0
-  BaseDamage: 10
-  ElementalDamageModifier: 0.5
+  positiveSynergyString: Boosted
+  positiveSynergyColour: {r: 0, g: 1, b: 0, a: 1}
+  negativeSynergyString: Hindered
+  negativeSynergyColour: {r: 1, g: 0, b: 0, a: 1}
+  synergyFontSize: 24
+  synergyHeightOffset: 3
+  RadiusModifier: 0.08
+  DamageModifier: 0.05
 --- !u!1 &1304271058454681839
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,10 +159,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1304271058454681839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f63997aa6604864181259101ed63a7a, type: 3}
+  m_Script: {fileID: 11500000, guid: f933dd8ae347c5748aecfd9dfe714f0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeUIPrefab: {fileID: 4498268938895701631, guid: 427dd2f9af7e9d241b484afa2f9af2a2, type: 3}
+  UpgradeUIPrefab: {fileID: 4498268938895701631, guid: 937092655c917ea47beb3e0376aff354, type: 3}
   UIOffset: {x: 0, y: 10}
 --- !u!1 &2004701393655807738
 GameObject:
@@ -200,12 +205,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004701393655807738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40665b75d8b34f840bcb2d1dd398623f, type: 3}
+  m_Script: {fileID: 11500000, guid: e6b7984e92a1f4c44b3f6a0553f10d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeRadius: 10
   rangeIndicatorPrefab: {fileID: 1700921576887677571, guid: 32826025e60526a47be17d72c2048faf, type: 3}
   debugGizmos: 1
+  BaseRange: 0
 --- !u!1001 &6467996146684818594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,7 +221,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 33769096900910459, guid: ae121273d3aab434195a97d04a0813bd, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Selectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 886822930696413841, guid: ae121273d3aab434195a97d04a0813bd, type: 3}
+      propertyPath: targetLayer.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2708318652744815620, guid: ae121273d3aab434195a97d04a0813bd, type: 3}
       propertyPath: targetTag
@@ -320,12 +329,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1376380908213506865}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5762760c6d2c048ab16c20e28af9d5, type: 3}
+  m_Script: {fileID: 11500000, guid: d7dd83907364eae419cda25427217f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerType: 0
-  towerElement: 0
-  towerLevel: 0
+  TowerType: 0
+  TowerElement: 0
+  TowerLevel: 0
+  TowerCost: 0
+  NextTowerCost: 0
 --- !u!4 &2886779308368047413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8200234984528140695, guid: ae121273d3aab434195a97d04a0813bd, type: 3}

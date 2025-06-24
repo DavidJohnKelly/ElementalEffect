@@ -69,6 +69,7 @@ public class ObjectPlacer : MonoBehaviour
             return;
         }
 
+
         isPlacementValid = previewObject.CheckPlacementValid();
 
         if (!isMovingObject)

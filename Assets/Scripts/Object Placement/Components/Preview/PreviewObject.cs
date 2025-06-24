@@ -61,8 +61,8 @@ public class PreviewObject : MonoBehaviour
         {
             previewObject.SetActive(false);
             Destroy(previewObject);
-            previewObject = null;
         }
+        previewObject = null;
     }
 
     /// <summary>
@@ -146,6 +146,11 @@ public class PreviewObject : MonoBehaviour
     /// <returns>True if the placement is valid, false otherwise.</returns>
     public bool CheckPlacementValid()
     {
+        if (placementValidator == null)
+        {
+            Debug.Log("ERROR! PlacementValidator is null!");
+            return false;
+        }
         return placementValidator.CheckPlacementValid();
     }
 }

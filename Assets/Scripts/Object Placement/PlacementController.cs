@@ -12,6 +12,10 @@ public class PlacementController : MonoBehaviour
     /// </summary>
     [Tooltip("The LayerMask for objects that can be selected.")]
     [SerializeField] private LayerMask objectLayer;
+    // The ObjectPlacer component responsible for handling object placement.
+    [SerializeField] private ObjectPlacer objectPlacer;
+    // The ObjectSelector component responsible for handling object selection.
+    [SerializeField] private ObjectSelector objectSelector;
     /// <summary>
     /// The audio clip to play when an object is successfully placed.
     /// </summary>
@@ -23,10 +27,6 @@ public class PlacementController : MonoBehaviour
     /// </summary>
     public static PlacementController Instance { get; private set; }
 
-    // The ObjectPlacer component responsible for handling object placement.
-    private ObjectPlacer objectPlacer;
-    // The ObjectSelector component responsible for handling object selection.
-    private ObjectSelector objectSelector;
     // The AudioSource component used to play placement sounds.
     private AudioSource audioSource;
     // The main camera used for raycasting.
@@ -42,8 +42,6 @@ public class PlacementController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            objectPlacer = GetComponentInChildren<ObjectPlacer>();
-            objectSelector = GetComponentInChildren<ObjectSelector>();
             placementCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
         else
@@ -63,6 +61,12 @@ public class PlacementController : MonoBehaviour
         bool overUI = IsOverUI();
         bool overTower = IsOverSelectable(ray);
         bool overTerrain = IsOverTerrain(ray, out var hitPoint);
+
+        if (objectPlacer == null)
+        {
+            Debug.Log("Object Placer is null");
+            return;
+        }
 
         objectPlacer.UpdatePreview(hitPoint);
 

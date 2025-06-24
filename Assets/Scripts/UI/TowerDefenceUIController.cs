@@ -233,6 +233,7 @@ public class TowerDefenceUIController : MonoBehaviour
     private void SetTowerInPlacer(TowerType type, TowerElement element)
     {
         PlaceableObject tower = TowerFactory.Instance.GetTower(type, element, TowerLevel.One);
+        Debug.Log("Tower: " + tower.name);
         objectPlacer.ObjectToPlace = tower;
     }
 

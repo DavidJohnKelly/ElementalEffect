@@ -63,5 +63,6 @@ crashlytics-build.properties
 Thumbs.db
 Desktop.ini
 
-Assets
+Assets/Sounds
+Assets/Resources
 
