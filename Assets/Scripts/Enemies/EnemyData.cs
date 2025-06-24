@@ -15,6 +15,8 @@ public enum EnemyType
     /// <summary> A spawning enemy that may spawn other enemies. </summary>
     Spawning,
 
+    Teleporer,
+
     /// <summary> A powerful boss enemy. </summary>
     Boss
 }

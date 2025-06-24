@@ -61,6 +61,7 @@ public class EnemyController : MonoBehaviour
     private ElementResistanceController elementResistanceController;
     private EndDamageController endDamageController;
     private HealthController healthController;
+    private TeleportingController teleportingController; // Add this line
     private GameObject spawnedModel;
     private BoxCollider boxCollider;
     private AudioSource audioSource;
@@ -74,6 +75,7 @@ public class EnemyController : MonoBehaviour
         elementResistanceController = GetComponentInChildren<ElementResistanceController>();
         endDamageController = GetComponentInChildren<EndDamageController>();
         healthController = GetComponentInChildren<HealthController>();
+        teleportingController = GetComponentInChildren<TeleportingController>(); // Add this line
         boxCollider = GetComponent<BoxCollider>();
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
@@ -147,6 +149,13 @@ public class EnemyController : MonoBehaviour
         if (dead) return;
 
         dead = true;
+
+        // Disable teleportation when enemy dies
+        if (teleportingController != null)
+        {
+            teleportingController.DisableTeleportation();
+        }
+
         if (isFromPlayer)
         {
             TextFactory.Instance.CreateText(bonusText, bonusColour, bonusFontSize, transform.position);
@@ -171,6 +180,13 @@ public class EnemyController : MonoBehaviour
         if (dead) return;
 
         dead = true;
+
+        // Disable teleportation when enemy reaches end
+        if (teleportingController != null)
+        {
+            teleportingController.DisableTeleportation();
+        }
+
         endDamageController.TriggerEndDamage();
         Explode();
     }
