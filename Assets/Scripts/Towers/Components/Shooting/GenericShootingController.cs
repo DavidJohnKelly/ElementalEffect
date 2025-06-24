@@ -1,62 +1,84 @@
 using UnityEngine;
 
+/// <summary>
+/// A generic base class for controlling the shooting behavior of towers.
+/// Handles basic shooting rate and projectile instantiation.
+/// </summary>
 public class GenericShootingController : MonoBehaviour
 {
+    /// <summary>
+    /// The prefab of the projectile to be fired.
+    /// </summary>
+    [Tooltip("The prefab of the projectile to be fired.")]
     public GameObject projectilePrefab;
-    public float ShotsPerSecond { get; set; } = 2f;
-    public float ProjectileSpeed { get; set; } = 200f;
-    public float Damage { get; set; } = 10f;
-    public bool ShootContinuously { get; set; } = false;
+    /// <summary>
+    /// The number of projectiles fired per shot (implementation may vary in derived classes).
+    /// </summary>
+    [Tooltip("The number of projectiles fired per shot.")]
+    public float NumProjectiles = 1;
+    /// <summary>
+    /// The number of shots fired per second.
+    /// </summary>
+    [Tooltip("The number of shots fired per second.")]
+    public float ShotsPerSecond;
+    /// <summary>
+    /// The speed at which the projectiles travel.
+    /// </summary>
+    [Tooltip("The speed at which the projectiles travel.")]
+    public float ProjectileSpeed;
 
-    private float timeBetweenShots;
-    private float timeSinceLastShot = 0f;
-    private TowerController towerController;
+    // Reference to the parent TowerController for accessing tower properties.
+    protected TowerController towerController;
 
+    // Keeps track of the time elapsed since the last shot was fired.
+    private float secondsSinceLastShot = 0f;
+
+    /// <summary>
+    /// Retrieves the TowerController component from the parent.
+    /// </summary>
     protected virtual void Awake()
     {
         towerController = GetComponentInParent<TowerController>();
-        UpdateShotsPerSecond(ShotsPerSecond);
     }
 
-    private void UpdateShotsPerSecond(float newShotsPerSecond)
-    {
-        if (newShotsPerSecond == 0)
-        {
-            Debug.Log("Error in GenericShootingController! newShotsPerSecond is 0!");
-            return;
-        }
-        ShotsPerSecond = newShotsPerSecond;
-        timeBetweenShots = 1f / newShotsPerSecond;
-    }
-
+    /// <summary>
+    /// Updates the shooting timer and attempts to shoot if the fire rate allows and the tower can shoot.
+    /// </summary>
     protected void Update()
     {
-        if (ShootContinuously)
-        {
-            Shoot();
-            return;
-        }
+        secondsSinceLastShot += Time.deltaTime;
 
-        timeSinceLastShot += Time.deltaTime;
+        if (ShotsPerSecond == 0 || !towerController.CanShoot) return;
 
-        if (timeSinceLastShot >= timeBetweenShots && towerController.CanShoot)
+
+        if (secondsSinceLastShot >= 1f / ShotsPerSecond)
         {
             bool shot = Shoot();
             if (shot)
             {
-                timeSinceLastShot = 0f;
+                secondsSinceLastShot = 0f;
             }
         }
     }
+
+    /// <summary>
+    /// Virtual method to be overridden by derived classes to implement specific shooting logic.
+    /// </summary>
+    /// <returns>True if a shot was attempted, false otherwise.</returns>
     protected virtual bool Shoot()
     {
         Debug.Log("Shooting not implemented");
         return false;
     }
 
+    /// <summary>
+    /// Instantiates a projectile prefab and sets its initial properties based on the provided aim vector.
+    /// </summary>
+    /// <param name="aimVector">The direction in which the projectile should travel.</param>
+    /// <returns>True if the projectile was successfully fired, false otherwise.</returns>
     protected virtual bool FireProjectile(Vector3 aimVector)
     {
-        if (!projectilePrefab)
+        if (projectilePrefab == null)
         {
             Debug.LogError("Projectile Prefab is not assigned!");
             return false;
@@ -73,8 +95,10 @@ public class GenericShootingController : MonoBehaviour
         {
             projectileController.Direction = aimVector;
             projectileController.Speed = ProjectileSpeed;
-            projectileController.Distance = towerController.Radius + 2f;  // Some padding as range is spherical
-            projectileController.Damage = Damage;
+            projectileController.MaxDistance = towerController.Range;
+            projectileController.ElementalDamageModfier = towerController.GetElementalDamageModifier();
+            projectile.SetActive(true);
+
             return true;
         }
         return false;

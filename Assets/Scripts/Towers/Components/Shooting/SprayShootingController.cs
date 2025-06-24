@@ -1,10 +1,15 @@
 using UnityEngine;
 
+/// <summary>
+/// A shooting controller that fires multiple projectiles in a spray pattern around the tower.
+/// </summary>
 public class SprayShootingController : GenericShootingController
 {
-    [SerializeField] private int projectilesPerLayer = 8;
-    [SerializeField] private int numberOfLayers = 3;
-
+    /// <summary>
+    /// Shoots multiple projectiles in a circular spray pattern around the tower.
+    /// The number of projectiles is determined by the NumProjectiles property.
+    /// </summary>
+    /// <returns>True if projectiles were fired, false otherwise (e.g., if projectile prefab is not assigned).</returns>
     protected override bool Shoot()
     {
         if (!projectilePrefab)
@@ -13,16 +18,12 @@ public class SprayShootingController : GenericShootingController
             return false;
         }
 
-        for (int i = 0; i < numberOfLayers; i++)
+        for (int j = 0; j < NumProjectiles; j++)
         {
-            for (int j = 0; j < projectilesPerLayer; j++)
-            {
-                float angle = (360f / projectilesPerLayer) * j;
-                float layerAngle = (360f / numberOfLayers) * i;
-                Vector3 aimVector = Quaternion.Euler(0, layerAngle, 0) * Quaternion.Euler(0, angle, 0) * Vector3.forward;
+            float angle = (360f / NumProjectiles) * j;
+            Vector3 aimVector = Quaternion.Euler(0, angle, 0) * Vector3.forward;
 
-                FireProjectile(aimVector);
-            }
+            FireProjectile(aimVector);
         }
 
         return true;

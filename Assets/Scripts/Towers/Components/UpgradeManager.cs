@@ -1,22 +1,47 @@
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Manages the upgrade functionality for a tower, including displaying the upgrade UI and handling the upgrade process.
+/// </summary>
 public class UpgradeManager : MonoBehaviour
 {
+    /// <summary>
+    /// The prefab for the upgrade UI that will be displayed above the tower.
+    /// </summary>
+    [Tooltip("The prefab for the upgrade UI that will be displayed above the tower.")]
     public GameObject UpgradeUIPrefab;
+    /// <summary>
+    /// The offset in world space to position the upgrade UI relative to the tower.
+    /// </summary>
+    [Tooltip("The offset in world space to position the upgrade UI relative to the tower.")]
     public Vector2 UIOffset = new(0, 10);
 
+    // Reference to the parent TowerController.
     private TowerController towerController;
+    // The main camera used for world-to-screen space conversions.
     private Camera selectionCamera;
+    // The GameObject holding the upgrade UI canvas.
     private GameObject canvasObject;
+    // The Canvas component of the upgrade UI.
     private Canvas upgradeUICanvas;
+    // The cost of the next upgrade level.
+    private float nextUpgradeCost;
+    // Flag indicating if the tower is at its maximum upgrade level.
+    private bool onFinalUpgrade = false;
 
+    /// <summary>
+    /// Retrieves the TowerController component from the parent.
+    /// </summary>
     private void Awake()
     {
         towerController = GetComponentInParent<TowerController>();
     }
 
+    /// <summary>
+    /// Finds the main camera, checks for null references, and determines the next upgrade cost and final upgrade status.
+    /// </summary>
     private void Start()
     {
         selectionCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
@@ -28,8 +53,20 @@ public class UpgradeManager : MonoBehaviour
         {
             Debug.LogError("Upgrade UI is null!");
         }
+
+        if (towerController.NextTowerCost == -1f)
+        {
+            onFinalUpgrade = true;
+        }
+        else
+        {
+            nextUpgradeCost = towerController.NextTowerCost;
+        }
     }
 
+    /// <summary>
+    /// Shows the upgrade menu UI above the tower.
+    /// </summary>
     public void ShowUpgradeMenu()
     {
         if (selectionCamera == null) return;
@@ -44,6 +81,9 @@ public class UpgradeManager : MonoBehaviour
         canvasObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Hides the upgrade menu UI.
+    /// </summary>
     public void HideUpgradeMenu()
     {
         if (canvasObject != null)
@@ -52,19 +92,23 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Destroys the GameObject this script is attached to when it is destroyed.
+    /// </summary>
     private void OnDestroy()
     {
         Destroy(gameObject);
     }
 
+    // Creates the canvas and instantiates the upgrade UI prefab.
     private void CreateCanvasAndUI()
     {
         canvasObject = new GameObject("UpgradeUICanvas");
         canvasObject.transform.parent = transform;
 
         upgradeUICanvas = canvasObject.AddComponent<Canvas>();
-        upgradeUICanvas.AddComponent<GraphicRaycaster>();
-        upgradeUICanvas.AddComponent<Billboard>();
+        canvasObject.AddComponent<GraphicRaycaster>();
+        canvasObject.AddComponent<Billboard>();
         upgradeUICanvas.renderMode = RenderMode.WorldSpace;
         upgradeUICanvas.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 
@@ -75,27 +119,46 @@ public class UpgradeManager : MonoBehaviour
 
         GameObject upgradeUIInstance = Instantiate(UpgradeUIPrefab, canvasRect);
         upgradeUIInstance.transform.SetParent(canvasObject.transform);
+        if (onFinalUpgrade)
+        {
+            upgradeUIInstance.GetComponentInChildren<Button>().GetComponentInChildren<TMP_Text>().text = "Finished";
+            upgradeUIInstance.GetComponentInChildren<TMP_Text>().text = "";
+        }
+        else
+        {
+            upgradeUIInstance.GetComponentInChildren<TMP_Text>().text = "Cost: " + nextUpgradeCost;
+        }
 
         canvasObject.SetActive(false);
         AttachButtonListener();
     }
 
+    /// <summary>
+    /// Initiates the tower upgrade process if the player has enough money and the tower is not at its final level.
+    /// </summary>
     public void Upgrade()
     {
-        if (towerController == null) return;
-        TowerLevel nextLevel = TowerData.GetNextLevel(towerController.towerLevel);
-        if (towerController.towerLevel == nextLevel) return;
-        PlaceableObject newTower = TowerFactory.Instance.CreateTower(towerController.towerType, towerController.towerElement, nextLevel);
+        if (towerController == null || onFinalUpgrade) return;
 
-        //float originalHeight = ModelUtil.GetObjectHalfHeight(towerController.TowerBase);
-        //float newHeight = ModelUtil.GetObjectHalfHeight(newTower);
+        if (GameController.Instance.CurrentMoney < nextUpgradeCost)
+        {
+            Debug.Log("Not enough money!");
+            return;
+        }
 
-        newTower.transform.position = transform.position;// + new Vector3(0, newHeight - originalHeight, 0);
+        GameController.Instance.ApplyCost(nextUpgradeCost);
+
+        TowerLevel nextLevel = TowerData.GetNextLevel(towerController.TowerLevel);
+        if (towerController.TowerLevel == nextLevel) return;
+        PlaceableObject newTower = TowerFactory.Instance.GetTower(towerController.TowerType, towerController.TowerElement, nextLevel);
+
+        newTower.transform.position = transform.position;
         newTower.SetActive(true);
 
         Destroy(towerController.TowerBase);
     }
 
+    // Attaches a listener to the button in the upgrade UI to call the Upgrade method.
     private void AttachButtonListener()
     {
         Button button = canvasObject.GetComponentInChildren<Button>();
