@@ -65,6 +65,25 @@ public class EnemyController : MonoBehaviour
     private BoxCollider boxCollider;
     private AudioSource audioSource;
 
+    [Header("Teleport Settings (For Teleporting Enemy Type)")]
+    [Tooltip("Minimum time between teleports (seconds). Increase for less frequent teleports.")]
+    [SerializeField] private float minTeleportInterval = 5f;
+
+    [Tooltip("Maximum time between teleports (seconds). Randomly chosen in this range for unpredictability.")]
+    [SerializeField] private float maxTeleportInterval = 15f;
+
+    [Tooltip("Maximum steps (knots) ahead to consider for teleportation. Limits distance for fairness.")]
+    [SerializeField] private int maxTeleportSteps = 3;
+
+    [Tooltip("Maximum world-space distance for teleport targets. Prevents long-range jumps.")]
+    [SerializeField] private float maxTeleportDistance = 20f;
+
+    [Tooltip("Optional prefab for visual effect on teleport (e.g., particles).")]
+    [SerializeField] private GameObject teleportEffectPrefab;
+
+    [Tooltip("Optional audio clip for teleport sound.")]
+    [SerializeField] private AudioClip teleportSound;
+
     private bool dead = false;
 
     private void Awake()
@@ -88,6 +107,66 @@ public class EnemyController : MonoBehaviour
         spawnedModel.transform.parent = transform;
         spawnedModel.transform.localScale = new Vector3(objectScale, objectScale, objectScale);
         AdjustColliderBounds();
+
+        if (Type == EnemyType.Teleporting)
+        {
+            StartCoroutine(TeleportRoutine());
+        }
+    }
+
+    /// <summary>
+    /// Coroutine to handle random teleport timing for the teleporting enemy type.
+    /// </summary>
+    private IEnumerator TeleportRoutine()
+    {
+        while (!dead)
+        {
+            // Wait a random interval for unpredictability and to avoid frequent teleports
+            float waitTime = Random.Range(minTeleportInterval, maxTeleportInterval);
+            yield return new WaitForSeconds(waitTime);
+
+            // Attempt to teleport if conditions allow
+            Teleport();
+        }
+    }
+
+    /// <summary>
+    /// Handles teleportation to a nearby knot for the teleporting enemy type.
+    /// Updates position and PathState instantly, then resumes normal movement.
+    /// </summary>
+    private void Teleport()
+    {
+        if (dead || pathingController == null || pathingController.Path == null) return;
+
+        // Get nearby valid teleport targets (nearby knots within limits)
+        var possibleTargets = pathingController.Path.GetNearbyKnotsForTeleport(
+            pathingController.PathState,
+            maxTeleportSteps,
+            maxTeleportDistance
+        );
+
+        if (possibleTargets.Count == 0) return; // No valid spots, skip teleport
+
+        // Randomly select a target for unpredictability
+        var random = new System.Random(pathingController.PathState.Seed.Next());
+        int index = random.Next(possibleTargets.Count);
+        var target = possibleTargets[index];
+
+        // Update PathState to the new knot (resumes normal pathing from there)
+        pathingController.PathState = pathingController.Path.CreatePathState(target.Spline, target.Knot);
+
+        // Instantly move to the new position
+        transform.position = pathingController.PathState.NextWaypoint;
+
+        // Optional: Play effects for player feedback
+        if (teleportEffectPrefab != null)
+        {
+            Instantiate(teleportEffectPrefab, transform.position, Quaternion.identity);
+        }
+        if (teleportSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(teleportSound);
+        }
     }
 
     private void Update()

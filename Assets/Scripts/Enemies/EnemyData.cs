@@ -15,6 +15,9 @@ public enum EnemyType
     /// <summary> A spawning enemy that may spawn other enemies. </summary>
     Spawning,
 
+    /// <summary> An enemy that can teleport ahead on the map. </summary>
+    Teleporting,
+
     /// <summary> A powerful boss enemy. </summary>
     Boss
 }

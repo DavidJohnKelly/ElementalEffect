@@ -67,6 +67,7 @@ public class SplinePath : MonoBehaviour
         return options[selectedIndex];
     }
 
+    // Originall private
     private PathState CreatePathState(int splineIndex, int knotIndex)
     {
         Vector3 worldPosition = GetKnotWorldPosition(splineIndex, knotIndex);
@@ -119,5 +120,59 @@ public class SplinePath : MonoBehaviour
         }
 
         return routes;
+    }
+
+    /// <summary>
+    /// Gets a list of nearby knots suitable for teleportation, limited by steps and distance.
+    /// Prioritizes forward/linked knots to keep teleports predictable yet varied.
+    /// </summary>
+    /// <param name="currentState">The current path state.</param>
+    /// <param name="maxSteps">Max knots ahead to consider (e.g., 3 for short-range).</param>
+    /// <param name="maxDistance">Max world-space distance from current position.</param>
+    /// <returns>List of valid SplineKnotIndex targets, or empty if none found.</returns>
+    public List<SplineKnotIndex> GetNearbyKnotsForTeleport(PathState currentState, int maxSteps, float maxDistance)
+    {
+        List<SplineKnotIndex> nearbyKnots = new();
+        HashSet<SplineKnotIndex> visited = new(); // Avoid duplicates
+        Queue<(SplineKnotIndex, int)> toProcess = new(); // BFS-like for step limiting
+
+        // Start from current knot
+        SplineKnotIndex currentKnot = new(currentState.CurrentSplineIndex, currentState.CurrentKnotIndex);
+        toProcess.Enqueue((currentKnot, 0));
+        visited.Add(currentKnot);
+
+        Vector3 currentPosition = currentState.NextWaypoint;
+
+        while (toProcess.Count > 0)
+        {
+            var (knot, step) = toProcess.Dequeue();
+            if (step >= maxSteps) continue; // Enforce step limit
+
+            // Get routes from this knot (direct next and linked)
+            var routes = GetAvailableRoutes(new PathState { CurrentSplineIndex = knot.Spline, CurrentKnotIndex = knot.Knot });
+
+            foreach (var route in routes)
+            {
+                if (visited.Contains(route)) continue;
+                visited.Add(route);
+
+                Vector3 routePosition = GetKnotWorldPosition(route.Spline, route.Knot);
+                float distance = Vector3.Distance(currentPosition, routePosition);
+
+                // Add if within distance and not the current knot
+                if (distance <= maxDistance && distance > 0)
+                {
+                    nearbyKnots.Add(route);
+                }
+
+                // Queue for further exploration if under step limit
+                if (step + 1 < maxSteps)
+                {
+                    toProcess.Enqueue((route, step + 1));
+                }
+            }
+        }
+
+        return nearbyKnots;
     }
 }
