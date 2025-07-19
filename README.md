@@ -1,3 +1,7 @@
+Download: 
+
+A Windows build of this project can be downloaded from my itch.io page: https://kungfudynamite.itch.io/elemental-effect
+
 Setup:
 
 This project implements a tower defence game in Unity using C#. I am using Unity version 6000.1.8f1, and developing primarily for the Windows platform.
